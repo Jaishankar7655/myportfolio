@@ -32,6 +32,7 @@ const About = () => {
   ];
 
   return (
+
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 py-10 px-4 transition-colors duration-300">
       <div className="max-w-4xl mx-auto space-y-6 mt-10">
         {/* Profile Section */}
@@ -129,6 +130,8 @@ const About = () => {
         <div className="h-1 w-full bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500 rounded-full"></div>
       </div>
     </div>
+
+    
   );
 };
 
