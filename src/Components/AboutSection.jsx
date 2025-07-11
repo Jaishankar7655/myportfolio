@@ -1,6 +1,6 @@
 import React from 'react';
 
-function About({ darkMode }) {
+const AboutSection = ({ darkMode }) => {
   const cardClasses = darkMode
     ? "bg-white/5 backdrop-blur-md border border-white/10"
     : "bg-white backdrop-blur-md border border-gray-200 shadow-lg";
@@ -38,6 +38,6 @@ function About({ darkMode }) {
       </div>
     </section>
   );
-}
+};
 
-export default About;
+export default AboutSection;

@@ -1,10 +1,23 @@
 import React from 'react'
-import LandingPage from './LandingPage'
-
+import Navbar from './NavBar'
+import HeroSection from './HeroSection'
+import AboutSection from './AboutSection'
+import ProjectsSection from './ProjectsSection'
+import SideNavigation from './SideNavigation'
+import SkillsSection from './SkillsSection'
+import AcademicSection from './AcademicSection'
 function Home() {
   return (
    <>
-   <LandingPage/>
+   <div className='relative' >
+    <Navbar/>
+    <HeroSection/>
+    <SkillsSection/>
+    <AboutSection/>
+    <AcademicSection/>
+    <ProjectsSection/>
+
+   </div>
    </>
   )
 }
