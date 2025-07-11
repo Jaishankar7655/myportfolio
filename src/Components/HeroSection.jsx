@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { Github, Linkedin } from 'lucide-react';
 
-const HeroSection = ({ darkMode, scrollY }) => {
+const HeroSection = ({ darkMode }) => {
   const mountRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const cursorLightRef = useRef(null);
@@ -142,59 +142,58 @@ const HeroSection = ({ darkMode, scrollY }) => {
         }}
       />
 
-      {/* Three.js Background - Only for Hero */}
+      {/* Three.js Background */}
       <div 
         ref={mountRef} 
         className="fixed top-0 left-0 w-full h-screen -z-10"
         style={{ 
           background: darkMode 
             ? 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)'
-            : 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%)',
-          clipPath: scrollY > 100 ? 'polygon(0 0, 100% 0, 100% 0, 0 0)' : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
+            : 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%)'
         }}
       />
 
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center px-6">
-        <div className="text-center max-w-4xl mx-auto">
+      <section className="h-screen flex items-center justify-center px-4 sm:px-6 md:px-8">
+        <div className="text-center max-w-2xl md:max-w-4xl mx-auto w-full">
           <div className="mb-8">
-            <div className={`inline-flex items-center mt-[200px] md:mt-0 ${darkMode ? 'bg-white/10' : 'bg-gray-900/10'} backdrop-blur-md rounded-full px-4 py-2 mb-6 border ${darkMode ? 'border-white/20' : 'border-gray-200/20'}`}>
+            <div className={`inline-flex items-center mt-32 md:mt-0 ${darkMode ? 'bg-white/10' : 'bg-gray-900/10'} backdrop-blur-md rounded-full px-4 py-2 mb-6 border ${darkMode ? 'border-white/20' : 'border-gray-200/20'}`}>
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-              <span className={`${darkMode ? 'text-white/80' : 'text-gray-700'} text-sm`}>Available for Hire</span>
+              <span className={`${darkMode ? 'text-white/80' : 'text-gray-700'} text-xs sm:text-sm`}>Available for Hire</span>
             </div>
             
-            <h1 className={`text-5xl md:text-7xl font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h1 className={`font-bold mb-6 leading-tight ${darkMode ? 'text-white' : 'text-gray-900'} text-3xl sm:text-5xl md:text-7xl`}>
               <span className="block">Jaishankar</span>
               <span className={`block text-transparent bg-clip-text ${darkMode ? 'bg-gradient-to-r from-orange-500 to-red-500' : 'bg-gradient-to-r from-blue-500 to-indigo-500'}`}>
                 Prasad Jaiswal
               </span>
             </h1>
             
-            <p className={`text-xl md:text-2xl mb-8 ${darkMode ? 'text-orange-400' : 'text-blue-600'}`}>
+            <p className={`text-lg sm:text-xl md:text-2xl mb-8 ${darkMode ? 'text-orange-400' : 'text-blue-600'}`}>
               Full Stack Web Developer
             </p>
             
-            <p className={`text-lg mb-12 max-w-3xl mx-auto leading-relaxed ${darkMode ? 'text-white/60' : 'text-gray-600'}`}>
+            <p className={`text-base sm:text-lg mb-12 max-w-3xl mx-auto leading-relaxed ${darkMode ? 'text-white/60' : 'text-gray-600'}`}>
               Passionate about creating innovative, user-centric web solutions with expertise in 
               frontend, backend, and database technologies. Building scalable applications with 
               dynamic animations and modern technologies.
             </p>
           </div>
 
-          <div className={`flex flex-wrap justify-center gap-4 mb-8 ${darkMode ? 'text-white/60' : 'text-gray-600'}`}>
+          <div className={`flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 ${darkMode ? 'text-white/60' : 'text-gray-600'} text-xs sm:text-base`}>
             <span>📍 Bhopal, MP, India</span>
             <span>📧 jaishankar7655@gmail.com</span>
             <span>📱 +91 9131705898</span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <a href="https://github.com/Jaishankar7655" 
-               className={`${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300 text-gray-900'} text-white px-8 py-3 rounded-full transition-all hover:scale-105 flex items-center gap-2`}>
+               className={`${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300 text-gray-900'} text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full transition-all hover:scale-105 flex items-center gap-2 text-sm sm:text-base`}>
               <Github className="w-4 h-4" />
               GitHub
             </a>
             <a href="https://linkedin.com/in/jaishankar-jaiswal-14253926b" 
-               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-all hover:scale-105 flex items-center gap-2">
+               className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full transition-all hover:scale-105 flex items-center gap-2 text-sm sm:text-base">
               <Linkedin className="w-4 h-4" />
               LinkedIn
             </a>
