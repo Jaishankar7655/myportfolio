@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-[10px] text-white/30 font-bold uppercase tracking-wider">© {year} Jaishankar Prasad Jaiswal</p>
           <p className="text-[10px] text-white/30 font-bold flex items-center gap-1 uppercase tracking-wider">
-            Made with <FiHeart size={10} className="text-brand-pink" /> React + Tailwind
+            Made with <FiHeart size={10} className="text-brand-pink" /> Jaishankar prasad jaiswal 
           </p>
         </div>
       </div>
