@@ -9,21 +9,19 @@ import Github from './components/Github'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
-import ParticleField from './components/ParticleField'
 
 function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200)
+    const timer = setTimeout(() => setLoading(false), 1800)
     return () => clearTimeout(timer)
   }, [])
 
   if (loading) return <Loader />
 
   return (
-    <div className="relative min-h-screen bg-surface-950 noise-bg grid-pattern">
-      <ParticleField />
+    <div className="relative min-h-screen bg-brutal-bg dots-pattern">
       <Navbar />
       <main>
         <Hero />

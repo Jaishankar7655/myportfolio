@@ -6,50 +6,49 @@ const Footer = () => {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-white/[0.04]">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <footer className="bg-brutal-black border-t-[4px] border-brutal-black">
+      <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Logo & tagline */}
+          {/* Logo */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                <span className="text-sm font-bold text-white font-mono">J</span>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-brand-yellow border-[3px] border-brand-yellow flex items-center justify-center">
+                <span className="text-lg font-black text-brutal-black font-mono">J</span>
               </div>
-              <span className="text-white font-semibold">Jaishankar Jaiswal</span>
+              <span className="text-brand-yellow font-black text-sm uppercase tracking-wider">Jaishankar Jaiswal</span>
             </div>
-            <p className="text-sm text-slate-500 italic">"Building scalable solutions, one commit at a time"</p>
+            <p className="text-white/40 text-xs font-bold italic">"One commit at a time" 🚀</p>
           </div>
 
-          {/* Quick links */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            {['About', 'Skills', 'Experience', 'Projects', 'Contact'].map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`} className="text-sm text-slate-400 hover:text-primary-400 transition-colors">{link}</a>
+          {/* Links */}
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            {['About', 'Skills', 'Projects', 'Contact'].map(link => (
+              <a key={link} href={`#${link.toLowerCase()}`} className="text-xs font-bold uppercase tracking-wider text-white/50 hover:text-brand-yellow transition-colors">{link}</a>
             ))}
           </div>
 
-          {/* Social + scroll top */}
-          <div className="flex items-center justify-end gap-3">
+          {/* Social + scroll */}
+          <div className="flex items-center justify-end gap-2">
             {[
               { icon: FiGithub, href: 'https://github.com/Jaishankar7655' },
               { icon: FiLinkedin, href: 'https://www.linkedin.com/in/jaishankar-jaiswal-14253926b' },
               { icon: FaInstagram, href: 'https://www.instagram.com/mr._jaishankar_jaiswal' },
               { icon: FiMail, href: 'mailto:Jaishankar7655@gmail.com' },
             ].map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/[0.03] hover:bg-primary-500/10 border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-primary-400 transition-all">
-                <s.icon size={16} />
+              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 border-2 border-white/20 flex items-center justify-center text-white/40 hover:text-brand-yellow hover:border-brand-yellow transition-all">
+                <s.icon size={14} />
               </a>
             ))}
-            <button onClick={scrollToTop} className="ml-2 w-9 h-9 rounded-lg bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg shadow-primary-500/20" aria-label="Scroll to top">
-              <FiArrowUp size={16} />
+            <button onClick={scrollToTop} className="ml-2 w-9 h-9 bg-brand-yellow border-2 border-brand-yellow flex items-center justify-center text-brutal-black hover:scale-110 transition-transform" aria-label="Top">
+              <FiArrowUp size={14} />
             </button>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-slate-500">© {year} Jaishankar Prasad Jaiswal. All rights reserved.</p>
-          <p className="text-xs text-slate-500 flex items-center gap-1">
-            Made with <FiHeart size={12} className="text-red-400" /> using React & Tailwind CSS
+        <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-[10px] text-white/30 font-bold uppercase tracking-wider">© {year} Jaishankar Prasad Jaiswal</p>
+          <p className="text-[10px] text-white/30 font-bold flex items-center gap-1 uppercase tracking-wider">
+            Made with <FiHeart size={10} className="text-brand-pink" /> React + Tailwind
           </p>
         </div>
       </div>

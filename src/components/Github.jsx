@@ -2,73 +2,69 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiGithub, FiGitCommit, FiStar, FiGitPullRequest } from 'react-icons/fi'
 
-const achievements = [
-  { name: 'Pair Extraordinaire', icon: '🤝', desc: 'Collaborated on pull requests' },
-  { name: 'Quickdraw', icon: '⚡', desc: 'Lightning fast responses' },
-  { name: 'Pull Shark', icon: '🦈', desc: 'Merged pull requests' },
-  { name: 'YOLO', icon: '🚀', desc: 'Merged without review' },
-]
-
 const Github = () => {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
 
   return (
-    <section id="github" className="relative py-24 md:py-32">
+    <section id="github" className="relative py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-16">
-          <span className="text-sm font-mono text-primary-400 tracking-wider uppercase mb-3 block">// Open Source</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">GitHub <span className="text-gradient-static">Activity</span></h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">My open source contributions and coding activity</p>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="mb-12">
+          <div className="flex items-center gap-4 mb-2">
+            <span className="section-num">05</span>
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-brutal-black tracking-tight">GITHUB</h2>
+              <div className="w-16 h-2 bg-brand-lime border-2 border-brutal-black mt-2" />
+            </div>
+          </div>
         </motion.div>
 
-        {/* Stats cards */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        {/* Stats */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
-            { icon: FiGitCommit, label: 'Contributions', value: '491+', color: 'text-emerald-400' },
-            { icon: FiGithub, label: 'Repositories', value: '10+', color: 'text-blue-400' },
-            { icon: FiStar, label: 'Achievements', value: '4', color: 'text-amber-400' },
-            { icon: FiGitPullRequest, label: 'Pull Requests', value: '15+', color: 'text-purple-400' },
-          ].map((stat, i) => (
-            <motion.div key={stat.label} whileHover={{ y: -4 }} className="glass-card rounded-2xl p-5 text-center group">
-              <stat.icon size={24} className={`mx-auto mb-3 ${stat.color} group-hover:scale-110 transition-transform`} />
-              <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-xs text-slate-400">{stat.label}</div>
+            { icon: FiGitCommit, label: 'Contributions', val: '491+', bg: 'bg-brand-lime' },
+            { icon: FiGithub, label: 'Repositories', val: '10+', bg: 'bg-brand-blue' },
+            { icon: FiStar, label: 'Achievements', val: '4', bg: 'bg-brand-yellow' },
+            { icon: FiGitPullRequest, label: 'Pull Requests', val: '15+', bg: 'bg-brand-pink' },
+          ].map((s) => (
+            <motion.div key={s.label} whileHover={{ y: -3 }} className={`brutal-card ${s.bg} p-5 text-center`}>
+              <s.icon size={22} className="mx-auto mb-2 text-brutal-black" />
+              <div className="text-2xl font-black text-brutal-black">{s.val}</div>
+              <div className="text-[10px] font-bold uppercase tracking-widest text-brutal-black/50">{s.label}</div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* GitHub Stats Images */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }} className="grid md:grid-cols-2 gap-6 mb-12">
-          <div className="glass-card rounded-2xl p-6 flex items-center justify-center">
-            <img src="https://github-readme-stats.vercel.app/api?username=Jaishankar7655&show_icons=true&theme=tokyonight&bg_color=00000000&hide_border=true&title_color=818cf8&icon_color=38bdf8&text_color=94a3b8" alt="GitHub Stats" className="w-full max-w-md" loading="lazy" />
-          </div>
-          <div className="glass-card rounded-2xl p-6 flex items-center justify-center">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Jaishankar7655&layout=compact&theme=tokyonight&bg_color=00000000&hide_border=true&title_color=818cf8&text_color=94a3b8" alt="Top Languages" className="w-full max-w-md" loading="lazy" />
-          </div>
-        </motion.div>
+        {/* Stats images */}
+        <div className="grid md:grid-cols-2 gap-5 mb-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2 }} className="brutal-card p-5 bg-brutal-black">
+            <img src="https://github-readme-stats.vercel.app/api?username=Jaishankar7655&show_icons=true&theme=dark&bg_color=1a1a2e&hide_border=true&title_color=FFE600&icon_color=4DEEEA&text_color=fff&ring_color=FFE600" alt="GitHub Stats" className="w-full max-w-md mx-auto" loading="lazy" />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.3 }} className="brutal-card p-5 bg-brutal-black">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Jaishankar7655&layout=compact&theme=dark&bg_color=1a1a2e&hide_border=true&title_color=FFE600&text_color=fff" alt="Top Languages" className="w-full max-w-md mx-auto" loading="lazy" />
+          </motion.div>
+        </div>
 
         {/* Streak */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.4 }} className="glass-card rounded-2xl p-6 flex justify-center mb-12">
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=Jaishankar7655&theme=tokyonight&background=00000000&hide_border=true&ring=818cf8&fire=38bdf8&currStreakLabel=818cf8" alt="GitHub Streak" className="w-full max-w-2xl" loading="lazy" />
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.4 }} className="brutal-card p-5 bg-brutal-black flex justify-center mb-8">
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=Jaishankar7655&theme=dark&background=1a1a2e&hide_border=true&ring=FFE600&fire=FF6B9D&currStreakLabel=FFE600&sideLabels=fff&dates=666" alt="GitHub Streak" className="w-full max-w-2xl" loading="lazy" />
         </motion.div>
 
         {/* Achievements */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.5 }}>
-          <h3 className="text-xl font-bold text-white text-center mb-6">🏆 Achievements</h3>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.5 }}>
+          <h3 className="font-black text-xs uppercase tracking-[0.15em] text-brutal-black/50 mb-4">GitHub Achievements</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {achievements.map((a, i) => (
-              <motion.div key={a.name} whileHover={{ y: -4, scale: 1.02 }} className="glass-card rounded-2xl p-5 text-center group cursor-default">
-                <div className="text-3xl mb-3">{a.icon}</div>
-                <div className="text-sm font-semibold text-white mb-1">{a.name}</div>
-                <div className="text-xs text-slate-400">{a.desc}</div>
+            {[
+              { name: 'Pair Extraordinaire', desc: 'Collaborative PR contributions', bg: 'bg-brand-blue' },
+              { name: 'Quickdraw', desc: 'Fast response and reviews', bg: 'bg-brand-yellow' },
+              { name: 'Pull Shark', desc: 'Multiple merged pull requests', bg: 'bg-brand-lime' },
+              { name: 'YOLO', desc: 'Confident direct merges', bg: 'bg-brand-pink' },
+            ].map((a) => (
+              <motion.div key={a.name} whileHover={{ y: -3 }} className={`brutal-card ${a.bg} p-4 cursor-default`}>
+                <div className="text-sm font-black text-brutal-black mb-1">{a.name}</div>
+                <div className="text-[10px] text-brutal-black/50 font-bold">{a.desc}</div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* Contribution graph */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.6 }} className="mt-12 glass-card rounded-2xl p-6 flex justify-center">
-          <img src="https://github-readme-activity-graph.vercel.app/graph?username=Jaishankar7655&theme=tokyo-night&bg_color=00000000&hide_border=true&line=818cf8&point=38bdf8&area_color=6366f1&area=true" alt="Activity Graph" className="w-full" loading="lazy" />
         </motion.div>
       </div>
     </section>

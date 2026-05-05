@@ -1,88 +1,65 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
-  SiJavascript, SiPython, SiCplusplus, SiGnubash,
-  SiReact, SiHtml5, SiCss3, SiTailwindcss, SiBootstrap,
-  SiDjango, SiNodedotjs,
-  SiMysql, SiPostgresql,
-  SiAmazonwebservices, SiLinux, SiRedhat, SiUbuntu,
-  SiDocker, SiKubernetes, SiJenkins, SiGithubactions, SiArgocd, SiTerraform, SiAnsible,
-  SiGit, SiGithub, SiGitlab,
-  SiVisualstudiocode, SiVim, SiPostman, SiGreensock,
-} from 'react-icons/si'
+  FaJs, FaPython, FaReact, FaHtml5, FaCss3Alt, FaBootstrap,
+  FaNodeJs, FaDocker, FaJenkins, FaAws, FaLinux, FaRedhat, FaUbuntu,
+  FaGitAlt, FaGithub, FaGitlab,
+} from 'react-icons/fa'
+import {
+  FiDatabase, FiBox, FiCode, FiTerminal, FiMonitor, FiTool,
+  FiCpu, FiLayers, FiServer, FiCloud, FiSend,
+} from 'react-icons/fi'
 
-const skillCategories = [
+const categories = [
   {
-    title: 'Languages',
-    color: 'from-yellow-500 to-orange-500',
+    title: 'Languages', bg: 'bg-brand-yellow',
     skills: [
-      { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-      { name: 'Python', icon: SiPython, color: '#3776AB' },
-      { name: 'C++', icon: SiCplusplus, color: '#00599C' },
-      { name: 'Bash', icon: SiGnubash, color: '#4EAA25' },
+      { name: 'JavaScript', icon: FaJs }, { name: 'Python', icon: FaPython },
+      { name: 'C++', icon: FiCpu }, { name: 'Bash', icon: FiTerminal },
     ],
   },
   {
-    title: 'Frontend',
-    color: 'from-cyan-500 to-blue-500',
+    title: 'Frontend', bg: 'bg-brand-blue',
     skills: [
-      { name: 'React', icon: SiReact, color: '#61DAFB' },
-      { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
-      { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
-      { name: 'Tailwind', icon: SiTailwindcss, color: '#06B6D4' },
-      { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
-      { name: 'GSAP', icon: SiGreensock, color: '#88CE02' },
+      { name: 'React', icon: FaReact }, { name: 'HTML5', icon: FaHtml5 },
+      { name: 'CSS3', icon: FaCss3Alt }, { name: 'Tailwind', icon: FiLayers },
+      { name: 'Bootstrap', icon: FaBootstrap }, { name: 'GSAP', icon: FiCode },
     ],
   },
   {
-    title: 'Backend',
-    color: 'from-emerald-500 to-green-500',
+    title: 'Backend', bg: 'bg-brand-lime',
     skills: [
-      { name: 'Django', icon: SiDjango, color: '#092E20' },
-      { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+      { name: 'Django', icon: FiServer }, { name: 'Node.js', icon: FaNodeJs },
     ],
   },
   {
-    title: 'Database',
-    color: 'from-blue-500 to-indigo-500',
+    title: 'Database', bg: 'bg-brand-lavender',
     skills: [
-      { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-      { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { name: 'MySQL', icon: FiDatabase }, { name: 'PostgreSQL', icon: FiDatabase },
     ],
   },
   {
-    title: 'Cloud & Infra',
-    color: 'from-orange-500 to-red-500',
+    title: 'Cloud', bg: 'bg-brand-coral',
     skills: [
-      { name: 'AWS', icon: SiAmazonwebservices, color: '#FF9900' },
-      { name: 'Linux', icon: SiLinux, color: '#FCC624' },
-      { name: 'Red Hat', icon: SiRedhat, color: '#EE0000' },
-      { name: 'Ubuntu', icon: SiUbuntu, color: '#E95420' },
+      { name: 'AWS', icon: FaAws }, { name: 'Linux', icon: FaLinux },
+      { name: 'Red Hat', icon: FaRedhat }, { name: 'Ubuntu', icon: FaUbuntu },
     ],
   },
   {
-    title: 'DevOps & CI/CD',
-    color: 'from-purple-500 to-pink-500',
+    title: 'DevOps', bg: 'bg-brand-pink',
     skills: [
-      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-      { name: 'Kubernetes', icon: SiKubernetes, color: '#326CE5' },
-      { name: 'Jenkins', icon: SiJenkins, color: '#D24939' },
-      { name: 'GitHub Actions', icon: SiGithubactions, color: '#2088FF' },
-      { name: 'ArgoCD', icon: SiArgocd, color: '#EF7B4D' },
-      { name: 'Terraform', icon: SiTerraform, color: '#844FBA' },
-      { name: 'Ansible', icon: SiAnsible, color: '#EE0000' },
+      { name: 'Docker', icon: FaDocker }, { name: 'Kubernetes', icon: FiCloud },
+      { name: 'Jenkins', icon: FaJenkins }, { name: 'GitHub Actions', icon: FaGithub },
+      { name: 'ArgoCD', icon: FiBox }, { name: 'Terraform', icon: FiLayers },
+      { name: 'Ansible', icon: FiTool },
     ],
   },
   {
-    title: 'Tools',
-    color: 'from-slate-400 to-slate-600',
+    title: 'Tools', bg: 'bg-brand-peach',
     skills: [
-      { name: 'Git', icon: SiGit, color: '#F05032' },
-      { name: 'GitHub', icon: SiGithub, color: '#ffffff' },
-      { name: 'GitLab', icon: SiGitlab, color: '#FC6D26' },
-      { name: 'VS Code', icon: SiVisualstudiocode, color: '#007ACC' },
-      { name: 'Vim', icon: SiVim, color: '#019733' },
-      { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+      { name: 'Git', icon: FaGitAlt }, { name: 'GitHub', icon: FaGithub },
+      { name: 'GitLab', icon: FaGitlab }, { name: 'VS Code', icon: FiMonitor },
+      { name: 'Vim', icon: FiTerminal }, { name: 'Postman', icon: FiSend },
     ],
   },
 ]
@@ -91,72 +68,66 @@ const Skills = () => {
   const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
 
   return (
-    <section id="skills" className="relative py-24 md:py-32">
+    <section id="skills" className="relative py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-mono text-primary-400 tracking-wider uppercase mb-3 block">
-            // Tech Stack
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Skills &{' '}
-            <span className="text-gradient-static">Technologies</span>
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            A comprehensive toolkit spanning frontend, backend, cloud, and DevOps
-          </p>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="mb-12">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="section-num">02</span>
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-brutal-black tracking-tight">TECH STACK</h2>
+              <div className="w-20 h-2 bg-brand-pink border-2 border-brutal-black mt-2" />
+            </div>
+          </div>
         </motion.div>
 
-        {/* Skill categories */}
-        <div className="space-y-8">
-          {skillCategories.map((category, catIdx) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {categories.map((cat, ci) => (
             <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={cat.title}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * catIdx, duration: 0.5 }}
-              className="glass-card rounded-2xl p-6 md:p-8"
+              transition={{ delay: 0.05 * ci }}
+              className="brutal-card overflow-hidden"
             >
-              {/* Category header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className={`w-1 h-6 rounded-full bg-gradient-to-b ${category.color}`} />
-                <h3 className="text-lg font-semibold text-white">{category.title}</h3>
-                <div className="flex-1 h-px bg-gradient-to-r from-white/5 to-transparent" />
-                <span className="text-xs font-mono text-slate-500">
-                  {category.skills.length} skills
-                </span>
+              {/* Header */}
+              <div className={`${cat.bg} border-b-[3px] border-brutal-black px-5 py-3 flex justify-between items-center`}>
+                <h3 className="font-black text-sm uppercase tracking-wider text-brutal-black">{cat.title}</h3>
+                <span className="text-xs font-bold text-brutal-black/50">{cat.skills.length}</span>
               </div>
-
-              {/* Skills grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3">
-                {category.skills.map((skill, i) => (
+              {/* Skills */}
+              <div className="p-4 flex flex-wrap gap-2">
+                {cat.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 0.1 * catIdx + 0.05 * i }}
-                    whileHover={{ y: -4, scale: 1.05 }}
-                    className="tech-icon group flex flex-col items-center gap-2.5 p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] hover:border-white/[0.1] cursor-default"
+                    whileHover={{ scale: 1.05, rotate: Math.random() > 0.5 ? 2 : -2 }}
+                    className="flex items-center gap-2 px-3 py-2 bg-brutal-white border-2 border-brutal-black shadow-brutal-sm text-sm font-bold text-brutal-black cursor-default"
                   >
-                    <skill.icon
-                      size={28}
-                      style={{ color: skill.color }}
-                      className="group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <span className="text-xs font-medium text-slate-400 group-hover:text-white transition-colors text-center">
-                      {skill.name}
-                    </span>
+                    <skill.icon size={16} />
+                    {skill.name}
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Marquee */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
+          className="mt-10 overflow-hidden border-y-[3px] border-brutal-black bg-brutal-black py-3"
+        >
+          <div className="animate-marquee flex gap-10 whitespace-nowrap">
+            {[...Array(2)].map((_, si) => (
+              <div key={si} className="flex gap-10 items-center">
+                {['React ⚛️', 'Django 🐍', 'Docker 🐳', 'K8s ☸️', 'AWS ☁️', 'Jenkins 🔧', 'Terraform 🏗️', 'GitHub Actions 🤖', 'PostgreSQL 🐘', 'Node.js 💚', 'Linux 🐧'].map((t) => (
+                  <span key={`${si}-${t}`} className="text-sm font-black text-brand-yellow uppercase tracking-wider">{t}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

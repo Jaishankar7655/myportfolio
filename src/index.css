@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========== Base Styles ========== */
 * {
   margin: 0;
   padding: 0;
@@ -16,220 +15,136 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #020617;
-  color: #e2e8f0;
+  background-color: #F0EBD8;
+  color: #1a1a2e;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ========== Scrollbar ========== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f172a;
-}
-
+/* ====== Scrollbar ====== */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #1a1a2e; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #6366f1, #0ea5e9);
-  border-radius: 10px;
+  background: #FFE600;
+  border: 3px solid #1a1a2e;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #818cf8, #38bdf8);
-}
-
-/* ========== Selection ========== */
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: #fff;
+  background: #FFE600;
+  color: #1a1a2e;
 }
 
-/* ========== Custom utilities ========== */
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400;
-    background-size: 200% auto;
-    animation: gradient 4s linear infinite;
-  }
-
-  .text-gradient-static {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-accent-400;
-  }
-
-  .glass {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(99, 102, 241, 0.1);
-  }
-
-  .glass-card {
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(99, 102, 241, 0.08);
-  }
-
-  .glow-border {
-    position: relative;
-  }
-
-  .glow-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(14, 165, 233, 0.4), rgba(99, 102, 241, 0.2));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .noise-bg {
-    position: relative;
-  }
-
-  .noise-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
+/* ====== Neo-Brutalism Cards ====== */
+.brutal-card {
+  background-color: #FFFDF7;
+  border: 3px solid #1a1a2e;
+  border-radius: 0;
+  box-shadow: 4px 4px 0px 0px #1a1a2e;
+  transition: all 0.15s ease;
 }
 
-/* ========== Gradient orbs ========== */
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  pointer-events: none;
+.brutal-card:hover {
+  box-shadow: 6px 6px 0px 0px #1a1a2e;
+  transform: translate(-2px, -2px);
 }
 
-.gradient-orb-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #6366f1, transparent);
-  top: -200px;
-  right: -200px;
+.brutal-btn {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  border: 3px solid #1a1a2e;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 4px 4px 0px 0px #1a1a2e;
+  transition: all 0.1s ease;
+  cursor: pointer;
 }
 
-.gradient-orb-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #0ea5e9, transparent);
-  bottom: -150px;
-  left: -150px;
+.brutal-btn:hover {
+  box-shadow: 2px 2px 0px 0px #1a1a2e;
+  transform: translate(2px, 2px);
 }
 
-.gradient-orb-3 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #8b5cf6, transparent);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.brutal-btn:active {
+  box-shadow: 0px 0px 0px 0px #1a1a2e;
+  transform: translate(4px, 4px);
 }
 
-/* ========== Grid pattern ========== */
-.grid-pattern {
-  background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+.brutal-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid #1a1a2e;
+  background-color: #FEFAE0;
+  box-shadow: 2px 2px 0px 0px #1a1a2e;
 }
 
-/* ========== Particle dot ========== */
-.particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(99, 102, 241, 0.5);
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-}
-
-/* ========== Timeline custom ========== */
-.vertical-timeline-element-content {
-  background: rgba(15, 23, 42, 0.6) !important;
-  backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(99, 102, 241, 0.1) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
-  color: #e2e8f0 !important;
-  border-radius: 16px !important;
-  padding: 1.5rem 2rem !important;
-}
-
-.vertical-timeline-element-content-arrow {
-  border-right-color: rgba(99, 102, 241, 0.2) !important;
-}
-
-.vertical-timeline::before {
-  background: linear-gradient(180deg, #6366f1, #0ea5e9) !important;
-  width: 2px !important;
-}
-
-/* ========== Tech icon hover ========== */
-.tech-icon {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.tech-icon:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-}
-
-/* ========== Cursor blink ========== */
-.cursor-blink::after {
-  content: '|';
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ========== Link underline animation ========== */
-.link-hover {
-  position: relative;
-}
-
-.link-hover::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #6366f1, #0ea5e9);
-  transition: width 0.3s ease;
-}
-
-.link-hover:hover::after {
+.brutal-input {
   width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #FEFAE0;
+  border: 3px solid #1a1a2e;
+  color: #1a1a2e;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: 3px 3px 0px 0px #1a1a2e;
 }
 
-/* ========== Hamburger ========== */
-.hamburger-line {
-  transition: all 0.3s ease;
+.brutal-input::placeholder {
+  color: rgba(26, 26, 46, 0.4);
 }
 
-.hamburger-active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+.brutal-input:focus {
+  outline: none;
+  box-shadow: 5px 5px 0px 0px #FFE600;
+  border-color: #1a1a2e;
 }
 
-.hamburger-active .hamburger-line:nth-child(2) {
-  opacity: 0;
+.section-num {
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  -webkit-text-stroke: 3px #1a1a2e;
+  -webkit-text-fill-color: transparent;
 }
 
-.hamburger-active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+/* ====== Marquee ====== */
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ====== Grid dots pattern ====== */
+.dots-pattern {
+  background-image: radial-gradient(#1a1a2e 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ====== Diagonal stripes ====== */
+.stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(26, 26, 46, 0.04) 8px,
+    rgba(26, 26, 46, 0.04) 16px
+  );
+}
+
+/* ====== Sticker ====== */
+.sticker {
+  transform: rotate(-3deg);
+  transition: transform 0.2s;
+}
+.sticker:hover {
+  transform: rotate(0deg) scale(1.05);
 }
