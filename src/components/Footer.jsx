@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo */}
-          <div>
-            <div className="flex items-center gap-3 mb-2">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
               <div className="w-10 h-10 bg-brand-yellow border-[3px] border-brand-yellow flex items-center justify-center">
                 <span className="text-lg font-black text-brutal-black font-mono">J</span>
               </div>
@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
 
           {/* Social + scroll */}
-          <div className="flex items-center justify-end gap-2">
+          <div className="flex items-center justify-center md:justify-end gap-2 mt-4 md:mt-0">
             {[
               { icon: FiGithub, href: 'https://github.com/Jaishankar7655' },
               { icon: FiLinkedin, href: 'https://www.linkedin.com/in/jaishankar-jaiswal-14253926b' },
@@ -45,10 +45,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-[10px] text-white/30 font-bold uppercase tracking-wider">© {year} Jaishankar Prasad Jaiswal</p>
           <p className="text-[10px] text-white/30 font-bold flex items-center gap-1 uppercase tracking-wider">
-            Made with <FiHeart size={10} className="text-brand-pink" /> Jaishankar prasad jaiswal 
+            Made with <FiHeart size={10} className="text-brand-pink" /> Jaishankar Prasad Jaiswal 
           </p>
         </div>
       </div>

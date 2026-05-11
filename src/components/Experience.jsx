@@ -76,11 +76,11 @@ const Experience = () => {
               className="brutal-card overflow-hidden"
             >
               <div className={`${exp.bg} border-b-[3px] border-brutal-black px-6 py-4 flex flex-wrap items-center justify-between gap-3`}>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <span className="px-2.5 py-1 bg-brutal-black text-white text-[10px] font-black uppercase tracking-widest">{exp.type}</span>
                   <h3 className="font-black text-brutal-black text-lg">{exp.title}</h3>
                 </div>
-                <div className="flex items-center gap-3 text-xs font-bold text-brutal-black/60">
+                <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-brutal-black/60">
                   <span className="flex items-center gap-1"><FiCalendar size={12} /> {exp.period} · {exp.duration}</span>
                   <span className="flex items-center gap-1"><FiMapPin size={12} /> {exp.location}</span>
                 </div>
